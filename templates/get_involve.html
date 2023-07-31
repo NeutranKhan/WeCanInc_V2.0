@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Get Involve{% endblock title%}
+{% block content %}
+
+
+<div class="container my-5 bg-light">
+
+    <div class="row ms-1">
+
+        <div class="col-md-6 mb-4">
+            <h1 class="fw-bold">Get in on the Action!</h1>
+            <p class="mt-4 fw-bold"> Become a donor, make your impact and help support our lifesaving work through research, advocacy, educational programs, empowering youth, cultivating leaders, strengthening institutions and extending access to quality lives and information, improving the welfare of the disadvantaged, and inspiring a sustainable democratic development.</p>
+            <a href="{% url 'donate' %}"><button class="btn btn-danger mt-3">Donate</button></a>
+        </div>
+
+        <div class="col-md-6">
+            <img src="/media/images/getinvolve.jpeg" class="img-fluid rounded" alt="">
+        </div>
+
+    </div>
+
+    <div class="row ms-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">About working with us</h5>
+                <p class="card-text">
+                    Collaboration is at the core of everything we do. We know that no single organization can solve the complex set of issues contribution the global. that's why we champion bigger thinking, bolder action, and partnerships that bring together expertise, ideas, tools, and resources in support of the shared goal of creating a better world.
+                </p>
+                
+            </div>
+          </div>
+    </div>
+
+    <div class="row my-4 ms-1 justify-content-center">
+        <h2 class="text-center mb-4">Get Involve</h2>
+
+        <div class="card me-3 mb-2" style="width: 18rem;">
+            <img src="/media/images/get in 1.jpg" class="card-img-top" alt="..." height="200px;">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Volunteer</h3>
+                <h5 class="card-title fst-italic">Step out Walk</h5>
+                <p class="card-text">
+                    By chances are you've heard of this events. maybe you'll  walked it. why not try your hand as a volunteer? find a walk near you by using your expertise for a good cause in a diverse set of impactful means.
+                </p>
+                <a href="{% url 'volunteer' %}" class="btn bg-lime">Volunteer</a>
+            </div>
+        </div>
+
+        <div class="card me-3 mb-2" style="width: 18rem;">
+            <img src="/media/images/get in 2.jpeg" class="card-img-top" alt="..." height="200px;">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Become a Donor</h3>
+                <h5 class="card-title fst-italic">Take Action & Double Your Impact</h5>
+                <p class="card-text">
+                    Our nonprofit services are powered by generous people like you, whose kindness make We can Inc possible. When you support We Can Inc, you ensure that everyone has a safe place to tell their life story and feel the general nature love of the world with Friends, Family, and others.
+                </p>
+                <a href="{% url 'donate' %}" class="btn btn-danger">Donate</a>
+            </div>
+        </div>
+
+        <div class="card me-3 mb-2" style="width: 18rem;">
+            <img src="/media/images/get in 3.jpeg" class="card-img-top" alt="..." height="200px;">
+            <div class="card-body">
+                <h3 class="card-title fw-bold">Join Us</h3>
+                <h5 class="card-title fst-italic">Make Your Time Count</h5>
+                <p class="card-text">
+                    By joining the fight for a better society for all, and getting involved with your local chapter. Together, we can advance sky kingdom of critical care, support us by Starting to making a difference through community outreach, advocacy, Activism and plain old inspiration. </p>
+                    <a href="{% url 'join_us' %}" class="btn bg-lime">Join Us</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

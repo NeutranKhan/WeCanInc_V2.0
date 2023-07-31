@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-3 bg-light">
+    {% if request.user.is_authenticated %}
+
+        <div>
+            <h5>You are already loged in, do you want to <a href="{% url 'logout' %}">logout</a>?</h5>
+
+        </div>
+    {% else %}
+
+        <h1 class="text-center">Login</h1>
+
+        <div>
+            <form method='post'>
+
+                {% csrf_token %}
+
+                <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-group mb-3">
+                    <button type="submit" class="btn bg-lime">Login</button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

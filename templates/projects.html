@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock title%}
+{% block content %}
+
+<div class="container my-5 bg-light">
+    <div class="row ms-1">
+
+        <div class="col-md-6 mb-4">
+            <h1 class="fw-bold">On Going Project</h1>
+            <p class="mt-4 fw-bold">Educational Sponsorship of Poor, vulnerable and underprivileged Girls in the Slum and Rural Communities and Deep Well Pump Installation for School Going Kids.</p>
+            <a href="{% url 'donate' %}"><button class="btn btn-danger mt-3">Donate to this project</button></a>
+        </div>
+
+        <div class="col-md-6">
+            <img src="/media/images/img-3737-672x896.jpeg" class="img-fluid rounded" alt="">
+        </div>
+
+    </div>
+
+    <div class="row ms-1">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">Background Story</h5>
+                <p class="card-text">
+                    In the slums, urban and rural areas, where most people live below the poverty line, girls and women education takes the back seat. Poverty, underdevelopment, mass illiteracy, ignorance, urban backwardness and conservatism cause majority of girls in slums and rural settlement to be deprived of their basic rights to education. Various other social problems such as child marriage, trafficking and discrimination leads toward the undermining of girl’s rights to education. Limited access to education means many are stuck in a cycle of poverty.
+                </p>
+                <p class="card-text">
+                    As water is a vital need of human being as one cannot survive without it. Students, teachers, administrators and residents of the Bomi, Grand Cape Mount and the Montserrado Counties in the Republic of Liberia are farmers and laborers and for a long time has no access to a direct clean, and safe potable supply of drinking water.
+                </p>
+            </div>
+          </div>
+    </div>
+
+    <div class="row ms-1 mt-4">
+
+        <div class="col-md-6">
+            <figure class="figure">
+                <img src="/media/images/img-2845-1256x942.jpeg" class="figure-img img-fluid rounded" alt="...">
+                <figcaption class="figure-caption">School Girls in rural areas</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h3 class="fw-bold">
+                Underprivileged girls need access to education
+            </h3>
+
+            <p class="mt-4">
+                Women and girls are often treated as second-class citizens in our society. They have no access to contribute to community development and it is perceived that the only place they can best perform is in their husband’s house and in the kitchen. They are forced to marry at attender age because of religious, cultural and traditional beliefs. These barbaric attitudes towards female children must stop.
+
+                Negative cultural practices about girls education and participation in decision making in Liberia is on the high increase day by day, they are not considered useful in society and had led to many biases in the life of these people. 
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row ms-1 mt-4">
+
+        <div class="col-md-6 mb-4">
+            <h3 class="fw-bold">
+                Safe drinking water is vital to their health
+            </h3>
+
+            <p class="mt-4">
+                The schools in these areas majority of the students are sons and daughters of farmers and laborers. These schools and the communities are suffering from a lack of water especially in dry season, which lasts from match to September. These barangay schools previously receives from local expose well water supply and scream but always out of water, and with so many residents dependents on it results to the schools and communities dwellers having no supply of water where it becomes a problem for we cannot clean the comfort room, clean the surrounding and unable to water the gardens and other plants in the schools and communities as well.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <figure class="figure">
+                <img src="/media/images/img-3902-1256x707.jpg" class="figure-img img-fluid rounded" alt="...">
+                <figcaption class="figure-caption">Damage well on school compound </figcaption>
+            </figure>
+        </div>
+
+    </div>
+
+    <div class="row ms-1 mt-4">
+
+        <h1 class="text-center">View Some Of The Projects We Have Done</h1>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+              <div class="carousel-item active">
+                <img src="/media/images/received-318224182137925-1026x1824.jpeg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Hello World</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/received-436038491350279-792x1056.jpeg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/20220225-102848-785x589.jpeg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/img-20210706-141324-4-785x393.jpg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/img-1672-720x540.jpg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/img-6938-785x589.jpg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="/media/images/img-20210410-193202-1-785x393.jpg" class="d-block w-100"  height="400px" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

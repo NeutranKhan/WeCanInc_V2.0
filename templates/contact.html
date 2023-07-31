@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock title%}
+{% block content %}
+
+<div class="container my-5 bg-light">
+
+    <div class="row ms-1 my-4">
+        <h2 class="text-center">Lets get in touch</h2>
+        <img src="/media/images/get in 3.jpeg" alt="" class="img-fluid">
+    </div>
+
+    <div class="row ms-1">
+
+        <div class="col-md-6">
+            <h1>You can contact us via the following</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, minima doloribus? Consequuntur harum voluptas ipsam, fugit quae saepe illo amet doloremque impedit vitae odit aliquid, aperiam quas laudantium dolor dolores.</p>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Contact Us on</h2>
+            <p class="socials">
+              <a href="https://web.facebook.com/groups/909361442540723"><i class="fa fa-facebook"></i></a>
+              <a href="https://wwwinstagram.com/we_ican_nc/"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/we-can-inc-472b7526b/"><i class="fa fa-linkedin"></i></a>
+              <a href="https://www.youtube.com/@wecaninc7159/"><i class="fa fa-youtube"></i></a>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row ms-1 border rounded p-2 shadow">
+
+        <h2>Have questions? Send us a message!</h2>
+
+        <div class="col-md-6 mb-4">
+            <form method="post" action="https://formsubmit.co/wecaninc.org@gmail.com">
+                <input type="hidden" name="_subject" value="New submission from website!">
+                <input type="hidden" name="_next" value="https://wecaninc.org/thanks.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_autoresponse" value="Thanks for contacting us! We will get back to you sonner.">
+                <div class="mb-3">
+                  <label for="userName" class="form-label">Username</label>
+                  <input type="text" class="form-control" name="userName" id="userName" aria-describedby="UsernameHelp" required>
+                </div>
+                <div class="mb-3">
+                  <label for="userEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="userEmail" name="userEmail" aria-describedby="emailHelp" required>
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control" name="userMessage" id="userMessage" aria-label="message" required></textarea>
+                </div>
+                <button type="submit" name="send" class="btn bg-lime shadow" >Send</button>
+              </form>
+        </div>
+
+        <div class="col-md-6 rounded" style="background-color: #6bf3ad;">
+
+            <div class="my-2">
+                <h4>Address</h4>
+                <span class="d-block">Grassfield Community</span>
+                <span class="d-block">Gardnersville, Somalia Drive</span>
+                <span class="d-block">Montserrado County, Liberia</span>
+            </div>
+            <div class="my-2">
+                <h4>Phone Numbers</h4>
+                <span class="d-block">+213-775-972-161</span>
+                <span class="d-block">+213-775-972-161</span>
+
+            </div>
+            <div class="my-2">
+                <h4>Email</h4>
+                <span class="d-block">wecaninc.org@gmail.com</span>
+            </div>
+        </div>
+
+        
+    </div>
+
+</div>
+
+
+{% endblock %}

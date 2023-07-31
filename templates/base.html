@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel='stylesheet' type='text/css' href="{% static 'sidebars.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'footer.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+
+    <title>{% block title %}We Can Inc.{% endblock title %}</title>
+
+    <style>
+      .bg-lime {
+        background-color: #2de184;
+       
+      }
+      .bg-lime:hover{
+        background-color: #6bf3ad;
+      }
+      .c-lime {
+        color:#6bf3ad;
+      }
+
+      .bg-glass {
+        background-color: #0ce67572;
+        opacity: 50%;
+      }
+    </style>
+
+</head>
+<body class="bg-light">
+  <header class="shadow">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+
+              <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="/media/images/logo.png" alt="logo" width="150px" height="60px">
+              </a>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'projects' %}">Projects</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'activities' %}">Activities</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'get_involve' %}">Get Involve</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                  </li>
+                  <li class="nav-item mx-lg-2">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                  </li>
+
+                  {% if request.user.is_authenticated %}
+                    <li class="nav-item mx-lg-2">
+                      <a class="nav-link" href="{% url 'create_post' %}">Create Post</a>
+                    </li>
+                  {% endif %}
+                  
+                </ul>
+                <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                  <li class="nav-item mx-lg-2">
+                    <a class="btn btn-danger" href="{% url 'donate' %}">Donate</a>
+                  </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+      </nav>
+
+      <div class="container-fluid bg-dark p-3">
+
+        <div class="w-75 mx-lg-auto">
+            <form method="get" action="{% url 'search' %}" class="row g-1">
+
+                <div class="col-10">
+                    <input type="text" name="query" id="query" class="form-control" placeholder="Search our blog">
+                </div>
+
+                <div class="col-2">
+                    <input type="submit" value="Search" class="btn bg-lime">
+                </div>
+                
+            </form>
+        </div>
+
+      </div>
+
+  </header>
+
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div class="col-3 d-none d-lg-block">
+
+      <div class="d-none d-lg-flex flex-column align-items-stretch flex-shrink-0 bg-light float-end border-start shadow" style="width: 330px;">
+
+        <a href="{% url 'blog' %}" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+          <span class="fs-5 fw-semibold">Read Our Latest Posts</span>
+        </a>
+
+        <div class="list-group list-group-flush border-bottom scrollarea">
+
+          {% for post in post_list %}
+
+          <a href="{% url 'post_detail' post.pk %}" class="list-group-item list-group-item-action py-3 lh-tight shadow" aria-current="true">
+            
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+
+                <div class="col-md-4">
+                  <img src="{{post.image.url}}" class="img-fluid rounded-start" alt="...">
+                </div>
+
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title" style="font-size:16px;">{{post.title}}</h5>
+                    <p class="card-text text-truncate">{{post.content}}</p>
+                    <p class="card-text"><small class="text-muted">{{post.date_posted}}</small></p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div> 
+
+          </a>
+          <br>
+
+          {% endfor %}
+          
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="bg-dark ">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3 col-sm-6">
+          <div class="single-box">
+            <a href="{% url 'home' %}"><img src="/media/images/logo.png" alt="logo" width="150px" height="60px"></a>
+            <p>Join the fight to help thousands in need of your support!</p>
+            <h2>We Accept</h2>
+            <div class="card-area">
+              <i class="fa fa-cc-visa"></i>
+              <i class="fa fa-credit-card"></i>
+              <i class="fa fa-cc-mastercard"></i>
+              <i class="fa fa-cc-paypal"></i>
+            </div>
+            <br>
+            <a class="btn btn-danger" href="{% url 'donate' %}">Donate</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <div class="single-box">
+            <h2>About</h2>
+            <ul>
+              <li class="nav-item text-decoration-none"><a href="{% url 'projects' %}">Projects</a></li>
+              <li class="nav-item text-decoration-none"><a href="{% url 'activities' %}">Activities</a></li>
+              <li class="nav-item text-decoration-none"><a href="{% url 'blog' %}">Blog</a></li>
+              <li class="nav-item text-decoration-none"><a href="{% url 'about' %}">About Us</a></li>
+              <li class="nav-item text-decoration-none"><a href="{% url 'policy' %}">Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <div class="single-box">
+            <h2>Contacts</h2>
+            <ul>
+              <li><a href=" {% url 'get_involve' %} ">Get Involve</a></li>
+              <li><a href=" {% url 'donate' %} ">Become a Donor</a></li>
+              <li><a href=" {% url 'contact' %} ">Contact Us</a></li>
+              <li><a href=" {% url 'volunteer' %} ">Volunteer</a></li>
+              <li><a href=" {% url 'join_us' %} ">Join Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <form method='POST' action="https://formsubmit.co/wecaninc.org@gmail.com">
+            <input type="hidden" name="_subject" value="New Newsletter Signup">
+            <input type="hidden" name="_next" value="https://wecaninc.org">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="single-box">
+              <h2>NewsLetter</h2>
+              <p>Sign Up for our NewsLetter to get all of our latest updates</p>
+              
+              <div class="input-group mb-3">
+                <form action="">
+                  <input type="text" class="form-control" placeholder="Enter your email:" aria-label="User's email" aria-describedby="basic-addon2" required>
+
+                  
+                    <input type="submit" value="Signup" class="btn bg-lime">
+                  
+                </form>
+              </div>
+
+              <h2>Follow Us on</h2>
+
+              <p class="socials">
+                <a href="https://web.facebook.com/groups/909361442540723"><i class="fa fa-facebook"></i></a>
+                <a href="https://wwwinstagram.com/we_ican_nc/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/we-can-inc-472b7526b/"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@wecaninc7159/"><i class="fa fa-youtube"></i></a>
+              </p>
+
+            </div>
+          </form>
+          
+        </div>
+
+      </div>
+
+      <hr style="color: white;">
+      <div class="row text-white">
+        <span>@ 2023 We Can Inc. All rights reserved</span>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+
+  <script src="{% static 'sidebars.js' %}"></script>
+</body>
+</html>

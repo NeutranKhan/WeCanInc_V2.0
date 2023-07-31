@@ -1,0 +1,79 @@
+<!--This is my post details page -->
+{% extends 'base.html' %}
+{% block title %}Post Details{% endblock title%}
+{% block content %}
+<div class="container my-5 bg-light">
+
+    <div class="card mb-3">
+        
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <img src="{{ post.image.url }}" class="card-img" alt="{{ post.title }}" width="100" height="auto">
+            <small class="text-muted">Last updated {{ post.date_posted }}</small>
+            <p class="card-text"><small class="text-muted">Author: {{ post.author }}</small></p>
+            
+            <p class="card-text">{{ post.content }}</p>
+      
+
+            {% for post_image in post_images %}
+
+                {% if post_image.image %}
+                    <img class="card-img" src="{{ post_image.image.url }}" alt="{{ post_image.post.title }}" width="100" height="auto">
+                {% endif %}
+
+                {% if post_image.content %}
+                    <p class="card-text">{{ post_image.content }}</p>
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+        
+    </div>
+    {% if request.user.is_authenticated %}
+
+        <a class="btn bg-lime" href="{% url 'post_update' post.pk %}">Update</a>
+
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete this post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete "{{ post.title }}"?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <form method='post'>
+
+                            {% csrf_token %}
+                            <input class="btn btn-danger" type='submit' value='Yes, delete'>
+                    
+                        </form>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        
+
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

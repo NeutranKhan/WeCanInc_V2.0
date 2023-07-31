@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Join Us{% endblock title%}
+{% block content %}
+
+
+<div class="container my-5 bg-light">
+
+   <div class="row ms-1">
+      <div class="w-75 mx-auto">
+         <h1 class="text-center">Our People</h1>
+         <p class="text-center">
+            We believe in the power of impacting society and issues affecting humanity with equal ability in all we do. We all have a role to play – will you join us and do your part?
+         </p>
+      </div>
+      
+
+      <div class="card me-3 mb-2" style="width: 18rem;">
+         <img src="/media/images/abou.jpg" class="card-img-top" alt="..." height="200px;">
+         <div class="card-body">
+           <h5 class="card-title">Aboubakar S.M Sidibe</h5>
+           <p class="card-text">Founder & Executive Director</p>
+         </div>
+     </div>
+
+     <div class="card me-3 mb-2" style="width: 18rem;">
+         <img src="/media/images/mat.jpg" class="card-img-top" alt="..." height="200px;">
+         <div class="card-body">
+           <h5 class="card-title">Mateneh Sesay</h5>
+           <p class="card-text">Financial Director</p>
+         </div>
+     </div>
+
+     <div class="card me-3 mb-2" style="width: 18rem;">
+         <img src="/media/images/mus.jpg" class="card-img-top" alt="..." height="200px;">
+         <div class="card-body">
+           <h5 class="card-title">Musa M. Kromah</h5>
+           <p class="card-text">General Secretarial</p>
+         </div>
+     </div>
+   </div>
+
+   <div class="row ms-1 mt-4">
+
+      <div class="col-md-6 mb-4">
+         <img src="/media/images/get in 3.jpeg" class="img-fluid rounded" alt="">
+     </div>
+
+      <div class="col-md-6 ">
+          <h1>Join Our Team</h1>
+          <p class="mt-4">We are on a mission to transform our work to be more human, impactful, relevant and authentic. But we need amazing people doing amazing work to help us get there.</p>
+          <a href="{% url 'join_us_form' %}"><button class="btn bg-lime mt-3">Join</button></a>
+      </div>
+
+      
+
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

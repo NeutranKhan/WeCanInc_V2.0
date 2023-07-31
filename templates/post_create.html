@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Create Post{% endblock title%}
+{% block content %}
+
+<div class="container my-4 bg-light">
+    
+    <h1 class="text-center">Create New Post</h1>
+
+    <form method="post" enctype="multipart/form-data" class="form-control shadow">
+        {% csrf_token %}
+
+        <div class="form-group mb-3">
+            <label for="{{ post_form.title.auto_id }}">{{ post_form.title.label }}</label>
+            <input type="text" name="{{ post_form.title.html_name }}" id="{{ post_form.title.auto_id }}" class="form-control bg-light" value="{{ post_form.title.value|default:'' }}">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ post_form.image.auto_id }}">{{ post_form.image.label }}</label>
+            <input type="file" name="{{ post_form.image.html_name }}" id="{{ post_form.image.auto_id }}" class="form-control">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ post_form.content.auto_id }}">{{ post_form.content.label }}</label>
+            <textarea name="{{ post_form.content.html_name }}" id="{{ post_form.content.auto_id }}" class="form-control bg-light">{{ post_form.content.value|default:'' }}</textarea>
+        </div>
+        
+        <div class="form-group mb-3">
+            <label for="{{ post_form.status.auto_id }}">{{ post_form.status.label }}</label>
+            <select name="{{ post_form.status.html_name }}" id="{{ post_form.status.auto_id }}" class="form-control bg-light">
+                {% for value, label in post_form.status.field.choices %}
+                    <option value="{{ value }}"{% if post_form.status.value == value %} selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <h2>Additional Information</h2>
+
+        {{ post_image_formset.management_form }}
+
+        <div id='formset'>
+            {% for form in post_image_formset %}
+                <div class="form">
+
+                    <div class="form-group mb-3">
+                        <label for="{{ form.image.auto_id }}">{{ form.image.label }}</label>
+                        <input type="file" name="{{ form.image.html_name }}" id="{{ form.image.auto_id }}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="{{ form.content.auto_id }}">{{ form.content.label }}</label>
+                        <textarea name="{{ form.content.html_name }}" id="{{ form.content.auto_id }}" class="form-control bg-light">{{ form.content.value|default:'' }}</textarea>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="button" id="add-form" class="btn bg-lime">Add Information</button>
+        <input type="submit" value='Create' class="btn bg-lime">
+        
+    </form>
+</div>
+
+
+<script>
+    const formset = document.querySelector('#formset');
+    const addFormButton = document.querySelector('#add-form');
+    const totalFormsInput = document.querySelector('#id_postimage_set-TOTAL_FORMS');
+
+    addFormButton.addEventListener('click', () => {
+        const formCount = formset.children.length;
+        const newForm = formset.children[0].cloneNode(true);
+        const formRegex = RegExp('postimage_set-(\\d){1}-', 'g');
+        newForm.innerHTML = newForm.innerHTML.replace(formRegex, 'postimage_set-$(formCount)-');
+        formset.appendChild(newForm);
+        totalFormsInput.value = formCount + 1;
+    });
+</script>
+
+{% endblock %}

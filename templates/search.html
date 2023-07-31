@@ -1,0 +1,114 @@
+<!-- search.html -->
+{% extends 'base2.html' %}
+{% block title %}Search Results{% endblock title%}
+{% block content %}
+
+<div class="container my-4 bg-light">
+  <h2>Search Results</h2>
+
+  	{% if post_list %}
+		{% for post in post_list %}
+
+				<div class="card mb-3 w-100 shadow">
+
+					<div class="row g-0">
+						<div class="col-md-4">
+							<a href="{% url 'post_detail' post.pk %}">
+								<img src="{{ post.image.url }}" width="300px" height="300px" class="img rounded-start" alt="{{ post.title}}">
+							</a>
+						
+						</div>
+
+						<div class="col-md-8">
+							<div class="card-body">
+								<a href="{% url 'post_detail' post.pk %}">
+									<h5 class="card-title">{{ post.title }}</h5>
+								</a>
+								<p class="card-text">{{ post.content|truncatewords:100 }}</p>
+								<a href="{% url 'post_detail' post.pk %}" class="btn bg-lime">Read more</a>
+								<p class="card-text"><small class="text-muted">Last updated {{ post.date_posted }}</small></p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+		{% endfor %}
+
+	{% else %}
+		<p>No results found!</p>
+	{% endif %}
+    
+    <nav aria-label="...">
+      <ul class="pagination">
+  
+        {% if post_list.has_previous %}                
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ post_list.previous_page_number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">Previous</a>
+          </li>
+        
+        {% else %}
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ post_list.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link disabled">Previous</a>
+          </li>
+
+        {% endif %}
+  
+        <li class="page-item m-1">
+          <a href="?{{ page_request_var }}={{ post_list.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">{{ post_list.number }}</a>
+        </li>
+  
+        {% if post_list.has_next %}
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ post_list.next_page_number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">Next</a>
+          </li>
+
+        {% else %}
+
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ post_list.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link disabled">Next</a>
+          </li>
+
+        {% endif %}
+  
+      </ul>
+    </nav>
+  
+  {% if is_paginated %}
+    
+    <nav aria-label="...">
+      <ul class="pagination">
+  
+        {% if page_obj.has_previous %}                
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ page_obj.previous_page_number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ page_obj.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link disabled">Previous</a>
+          </li>
+        {% endif %}
+  
+        <li class="page-item m-1">
+          <a href="?{{ page_request_var }}={{ page_obj.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">{{ page_obj.number }}</a>
+        </li>
+  
+        {% if page_obj.has_next %}
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ page_obj.next_page_number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link bg-lime">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item m-1">
+            <a href="?{{ page_request_var }}={{ page_obj.number }}{% if political_entity %}&political_entity={{ political_entity }}{% endif %}{% if query %}&query={{ query }}{% endif %}" class="page-link disabled">Next</a>
+          </li>
+        {% endif %}
+  
+      </ul>
+    </nav>
+    
+  {% endif %}
+
+</div>
+    
+    
+{% endblock %}

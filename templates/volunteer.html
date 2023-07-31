@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Volunteer{% endblock title %}
+{% block content %}
+
+<div class="container my-5 bg-light">
+    <div class="row w-75 mx-auto shadow bg-light">
+        <h1 class="text-center fw-bold pt-4">Volunteer at WE CAN INC.</h1>
+        <h4 class="text-center pb-4">Volunteer with WE CAN INC. and help everyone in need</h4>
+    </div>
+
+    <div class="row ms-1 mt-4">
+        <img src="/media/images/about 2.jpeg" alt="" class="img-fluid">
+    </div>
+
+    <div class="row ms-1 mt-4">
+        <h1>Volunteering with WE CAN INC.</h1>
+        <p>
+            We Can Inc works with volunteers primarily through the We Can Inc. Volunteers (WCIVP) programm. If you have an undergraduate degree, several years of work experience and are interested in volunteer opportunities around the world, you may be eligible to become a member. The WCIVP programm recruits and places volunteers in assignments throughout the system, including at We Can Inc. We Can Inc. does not recruit members directly but through the WCIVP programm. To be considered, please contact us. 
+        </p>
+        <img src="/media/images/getinvolve.jpeg" alt="" class="img-fluid">
+    </div>
+
+    <div class="row ms-1 mt-4">
+        <h1 class="fw-bold text-center">Why Volunteer at WE CAN INC.</h1>
+        <div class="col-md-6 mb-4">
+            <ul>
+                <li class="fs-4">Because your're needed! No work is small, and volunteers are extremely valuable resources you can give to society. </li>
+                <li class="fs-4">If you actively work/volunteer will help you to make a positive contribution in the growth and development of the society. </li>
+                <li class="fs-4">You contribute in changing lives.</li>
+                <li class="fs-4">And better networking. </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <img src="/media/images/get in 2.jpeg" class="img-fluid rounded" alt="">
+        </div>
+
+    </div>
+
+    <div class="row ms-1 mt-4">
+
+        <h1 class="fw-bold">How Do I Volunteer?</h1>
+        <p class="mt-2"> Volunteering with We Can Inc. means you get the tools, resources and support you need to become an advocate, activist and humanitarians for social human work activities, fight against the injustice of global poverty and inspires sustainable democratic development by creating a communication to expose global environment problems and promote solutions that are essential to the world. From giving a few hours to making a life-long commitment, hundreds of people of all ages, genders and backgrounds across Africa and the world at large are making a huge contribution and creating a better future for others. Click on the button below to fill in the volunteer form and we will get back to you shortly</p>
+        <a href="{% url 'volunteer_form' %}"><button class="btn bg-lime mt-2">Volunteer</button></a>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
