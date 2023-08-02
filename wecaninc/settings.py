@@ -15,7 +15,8 @@ SECRET_KEY = 'we-can-inc-qi47yq%b=@*6ymv(@M13i9c3h8a1e5l12)w-a5a^^2brh!2drxqr8gf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["wecaninc.org"]
+ALLOWED_HOSTS = ["localhost",
+    "wecaninc.org"]
 
 
 # Application definition
