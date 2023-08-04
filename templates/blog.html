@@ -4,35 +4,37 @@
 
 <div class="container my-4 bg-light">
     
-      {% if post_list %}
-            {% for post in post_list %}
-  
-                    <div class="card mb-3 w-100 shadow">
-                        <div class="row g-0">
-                          <div class="col-md-4">
-                            <a href="{% url 'post_detail' post.pk %}">
-                                <img src="{{ post.image.url }}" width="300px" height="300px" class="img rounded-start" alt="{{ post.title}}">
-                            </a>
-                            
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                                <a href="{% url 'post_detail' post.pk %}">
-                                    <h5 class="card-title">{{ post.title }}</h5>
-                                </a>
-                              <p class="card-text">{{ post.content|truncatewords:100 }}</p>
-                              <a href="{% url 'post_detail' post.pk %}" class="btn bg-lime">Read more</a>
-                              <p class="card-text"><small class="text-muted">Last updated {{ post.date_posted }}</small></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+  {% if post_list %}
+    {% for post in post_list %}
 
-            {% endfor %}
+      <div class="card mb-3 w-100 shadow">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <a href="{% url 'post_detail' post.pk %}">
+                <img src="{{ post.image.url }}" width="300px" height="300px" class="img rounded-start" alt="{{ post.title}}">
+            </a>
+            
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <a href="{% url 'post_detail' post.pk %}">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                </a>
+              <p class="card-text">{{ post.content|truncatewords:100 }}</p>
+              <a href="{% url 'post_detail' post.pk %}" class="btn bg-lime">Read more</a>
+              <p class="card-text"><small class="text-muted">Last updated {{ post.date_posted }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    {% else %}
-        <p>No Post has been made... Sorry</p>
-    {% endif %}
+    {% endfor %}
+
+  {% else %}
+
+    <p>No Post has been made... Sorry</p>
+
+  {% endif %}
     
     <nav aria-label="...">
         <ul class="pagination">
