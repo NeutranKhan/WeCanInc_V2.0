@@ -2,6 +2,40 @@
 {% block title %}About{% endblock title%}
 {% block content %}
 
+<style id="the flip effect"> 
+    .flip:hover {
+      transform: rotateY(180deg);
+    }
+    
+    .card {
+      transform-style: preserve-3d;
+      transition: all 0.8s ease;
+    }
+    
+    .front, .back {
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+    }
+    
+    .front {
+      z-index: 2;
+    }
+    
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    /* Add the CSS for the click event */
+    .card.flipped .front {
+      transform: rotateY(180deg);
+    }
+
+    .card.flipped .back {
+      transform: rotateY(0deg);
+    }
+</style>
+
 <div class="container my-3 bg-light">
     <div class="row ms-1">
         <img src="https://drive.google.com/uc?export=view&id=19D9DQFvK7fuub2xTfhjBeQjZYI2aKKRI" alt="" class="img-fluid">
@@ -51,35 +85,58 @@
 
     <div class="row my-4 ms-1 justify-content-center">
         
-        <div class="card me-3 mb-2" style="width: 18rem;">
-            <img src="https://drive.google.com/uc?export=view&id=13KXaZpwBXxeH1SjyMiOD-p0ivNmTI-n2" class="card-img-top" alt="..." height="200px;">
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Our Mission</h3>
-                <p class="card-text">
-                    By chances are you've heard of this events. maybe you'll  walked it. why not try your hand as a volunteer? find a walk near you by using your expertise for a good cause in a diverse set of impactful means.Our mission is to create excellent society by combating impunity through the fight for equal access to justice, Economic empowerment of all citizens in Africa and the world by alleviate poverty and inspires sustainable democratic development and creating a communication to expose global environment problems and promote solutions that are essential to the world. 
-                </p>
+        <div class="card flip me-3 mb-2 w-75 shadow">
+            <div class="front">
+                <img src="https://drive.google.com/uc?export=view&id=13KXaZpwBXxeH1SjyMiOD-p0ivNmTI-n2" class="card-img-top" alt="..." height="300px;">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-center">Our Mission</h3>
+                </div>
             </div>
+            <div class="back">
+                <div class="card-body">
+                    <p class="card-text">
+                        By chances are you've heard of this events. maybe you'll  walked it. why not try your hand as a volunteer? find a walk near you by using your expertise for a good cause in a diverse set of impactful means.Our mission is to create excellent society by combating impunity through the fight for equal access to justice, Economic empowerment of all citizens in Africa and the world by alleviate poverty and inspires sustainable democratic development and creating a communication to expose global environment problems and promote solutions that are essential to the world. 
+                    </p>
+                </div>
+            </div>
+            
         </div>
 
-        <div class="card me-3 mb-2" style="width: 18rem;">
-            <img src="https://drive.google.com/uc?export=view&id=1XyPcRRwi0jJoQxLtl6Mdrss3tdlzab94" class="card-img-top" alt="..." height="200px;">
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Our Vision</h3>
-                <p class="card-text">
-                    To help people throughout the world realize their full potential by bringing inspiration and innovation to every person in the world and built a future in which people live in harmony with nature and seek a world of tolerance, hope and social justice where poverty has been overcome and people live in dignity and security, with a just world that values and conserves nature 
-                </p>
+        <div class="card flip me-3 mb-2 w-75 shadow">
+            <div class="front">
+                <img src="https://drive.google.com/uc?export=view&id=1XyPcRRwi0jJoQxLtl6Mdrss3tdlzab94" class="card-img-top" alt="..." height="300px;">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-center">Our Vision</h3>
+                </div>
             </div>
+            <div class="back">
+                <div class="card-body">
+                    <p class="card-text">
+                        To help people throughout the world realize their full potential by bringing inspiration and innovation to every person in the world and built a future in which people live in harmony with nature and seek a world of tolerance, hope and social justice where poverty has been overcome and people live in dignity and security, with a just world that values and conserves nature 
+                    </p>
+                </div>
+            </div>
+            
         </div>
 
-        <div class="card me-3 mb-2" style="width: 18rem;">
-            <img src="https://drive.google.com/uc?export=view&id=1bKNXe-FxlXv1UjGzsWBfl2mKNnh6yCrN" class="card-img-top" alt="..." height="200px;">
-            <div class="card-body">
-                <h3 class="card-title fw-bold">Our Goals</h3>
-                <p class="card-text">
-                    Our goals is to promote great opportunities for those in need with access to the right resources, so people can become empowered by their own abilities and gain the confidence to fulfill their potential. By further a social cause and provide a public benefit in improving the state of the natural environment, and encouraging the observance of human rights, in improving the welfare of the disadvantaged, or representing a corporate agenda.
-                </p>
+        <div class="card flip me-3 mb-2 w-75 shadow">
+            <div class="front">
+                <img src="https://drive.google.com/uc?export=view&id=1bKNXe-FxlXv1UjGzsWBfl2mKNnh6yCrN" class="card-img-top" alt="..." height="300px;">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-center">Our Goals</h3>
+                </div>
             </div>
+            <div class="back">
+                <div class="card-body">
+                    <p class="card-text">
+                        Our goals is to promote great opportunities for those in need with access to the right resources, so people can become empowered by their own abilities and gain the confidence to fulfill their potential. By further a social cause and provide a public benefit in improving the state of the natural environment, and encouraging the observance of human rights, in improving the welfare of the disadvantaged, or representing a corporate agenda. 
+                    </p>
+                </div>
+            </div>
+            
         </div>
+
+        
 
     </div>
 
@@ -195,4 +252,11 @@
 
 </div>
 
+<script>
+    $('.card').on('click', function(event) {
+      event.stopPropagation();
+      $(this).toggleClass('flipped');
+    });
+    
+</script>
 {% endblock %}
