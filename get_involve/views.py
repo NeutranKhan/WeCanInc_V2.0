@@ -70,6 +70,28 @@ def volunteer_form(request):
     }
     return render(request, "volunteer_form.html", context=context)
 
+def internships_form(request):
+    post_list = Post.objects.filter(status=1)
+    paginator = Paginator(post_list, 10)
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    
+    try:
+        post_list  = paginator.page(page)
+
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+
+
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_pages)
+
+    context = {
+        "post_list": post_list,
+        "page_request_var": page_request_var
+    }
+    return render(request, "internships_form.html", context=context)
+
 def join_us(request):
     post_list = Post.objects.filter(status=1)
     paginator = Paginator(post_list, 10)
